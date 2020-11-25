@@ -35,4 +35,5 @@ public enum MeasureType {
         return this.type + " [" + this.basicUnit + "]";
     }
     
+    
 }

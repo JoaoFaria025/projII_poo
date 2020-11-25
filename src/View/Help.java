@@ -33,7 +33,6 @@ public class Help extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ajuda - Conversor de Unidades");
 
         jPanel1.setBackground(new java.awt.Color(29, 209, 161));

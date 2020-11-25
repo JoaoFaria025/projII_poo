@@ -51,6 +51,7 @@ public class ConvertWindow extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ICONVERT - Conversão de Unidades");
 
         jPanel1.setBackground(new java.awt.Color(5, 196, 107));
 

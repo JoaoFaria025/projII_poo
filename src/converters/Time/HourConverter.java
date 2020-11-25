@@ -5,10 +5,28 @@
  */
 package converters.Time;
 
+import converters.AbstractConverter;
+
 /**
  *
  * @author jvcco
  */
-public class HourConverter {
+public class HourConverter extends AbstractConverter{
+    
+    
+     public HourConverter() {
+        super("hour (h)");
+    }
+
+    
+    @Override
+    public double toBasicUnit(double value) {
+        return value * 3600; //Hora para Segundo
+    }
+
+    @Override
+    public double fromBasicUnit(double value) {
+        return value/3600; //Segundo para Hora
+    }
     
 }

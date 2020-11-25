@@ -5,10 +5,25 @@
  */
 package converters.Time;
 
+import converters.AbstractConverter;
+
 /**
  *
  * @author jvcco
  */
-public class SecondConverter {
+public class SecondConverter extends AbstractConverter {
+       public SecondConverter() {
+        super("Second (s)");
+    }
+
     
+    @Override
+    public double toBasicUnit(double value) {
+        return value;
+    }
+
+    @Override
+    public double fromBasicUnit(double value) {
+        return value;
+    }
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package converters.Time;
+package converters.Mass;
 
 import converters.AbstractConverter;
 
@@ -11,21 +11,19 @@ import converters.AbstractConverter;
  *
  * @author jvcco
  */
-public class MinutesConverter extends AbstractConverter{
-    
-    
-     public MinutesConverter() {
-        super("Minutes (m)");
+public class MiliGramaConverter extends AbstractConverter {
+     public MiliGramaConverter() {
+        super("Miligrama (mg)");
     }
 
     
     @Override
     public double toBasicUnit(double value) {
-        return value * 60; //Hora para Segundo
+        return value / 0.000001; //Miligrama para KG
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value/60; //Segundo para Hora
+        return value * 1000000; //KG para Miligrama
     }
 }

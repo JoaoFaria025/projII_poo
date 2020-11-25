@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package converters.Time;
+package converters.Volume;
 
 import converters.AbstractConverter;
 
@@ -11,21 +11,19 @@ import converters.AbstractConverter;
  *
  * @author jvcco
  */
-public class MinutesConverter extends AbstractConverter{
-    
-    
-     public MinutesConverter() {
-        super("Minutes (m)");
+public class KiloLitreConverter extends AbstractConverter {
+     public KiloLitreConverter() {
+        super("KiloLitre (kl)");
     }
 
     
     @Override
     public double toBasicUnit(double value) {
-        return value * 60; //Hora para Segundo
+        return value * 1000; //KiloLitre para Litros
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value/60; //Segundo para Hora
+        return value/1000; //Litros para KiloLitre
     }
 }

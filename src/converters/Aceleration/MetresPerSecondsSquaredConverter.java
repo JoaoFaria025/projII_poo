@@ -5,10 +5,24 @@
  */
 package converters.Aceleration;
 
+import converters.AbstractConverter;
+
 /**
  *
  * @author jvcco
  */
-public class MetresPerSecondsSquaredConverter {
-    
+public class MetresPerSecondsSquaredConverter extends AbstractConverter {
+ public MetresPerSecondsSquaredConverter() {
+        super("m/s\u00b2");
+    }
+
+    @Override
+    public double toBasicUnit(double value) {
+        return value;
+    }
+
+    @Override
+    public double fromBasicUnit(double value) {
+        return value;
+    }
 }

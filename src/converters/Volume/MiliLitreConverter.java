@@ -5,10 +5,25 @@
  */
 package converters.Volume;
 
+import converters.AbstractConverter;
+
 /**
  *
  * @author jvcco
  */
-public class MiliLitreConverter {
+public class MiliLitreConverter extends AbstractConverter {
+     public MiliLitreConverter() {
+        super("MiliLitre (ml)");
+    }
+
     
+    @Override
+    public double toBasicUnit(double value) {
+        return value/1000; //MiliLitre para Litros
+    }
+
+    @Override
+    public double fromBasicUnit(double value) {
+        return value * 1000; //Litros para MiliLitre
+    }
 }

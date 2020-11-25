@@ -5,10 +5,25 @@
  */
 package converters.Mass;
 
+import converters.AbstractConverter;
+
 /**
  *
  * @author jvcco
  */
-public class GramConverter {
+public class GramConverter extends AbstractConverter {
+     public GramConverter() {
+        super("Grama (g)");
+    }
+
     
+    @Override
+    public double toBasicUnit(double value) {
+        return value * 0.001; //Grama para KG
+    }
+
+    @Override
+    public double fromBasicUnit(double value) {
+        return value * 1000; //KG para Grama
+    }
 }

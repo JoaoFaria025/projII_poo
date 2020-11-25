@@ -5,10 +5,25 @@
  */
 package converters.Volume;
 
+import converters.AbstractConverter;
+
 /**
  *
  * @author jvcco
  */
-public class LitreConverter {
+public class LitreConverter extends AbstractConverter {
+     public LitreConverter() {
+        super("Litre (hm)");
+    }
+
     
+    @Override
+    public double toBasicUnit(double value) {
+        return value; //Hectometre para Metros
+    }
+
+    @Override
+    public double fromBasicUnit(double value) {
+        return value; //Metros para Hectometre
+    }
 }

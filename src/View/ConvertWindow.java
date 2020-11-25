@@ -74,7 +74,6 @@ public class ConvertWindow extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Km", "Cm" }));
         jComboBox1.setBorder(null);
-        jComboBox1.setPreferredSize(new java.awt.Dimension(38, 18));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,11 +193,11 @@ public class ConvertWindow extends javax.swing.JFrame {
         jMenuBar1.setOpaque(false);
         jMenuBar1.setPreferredSize(new java.awt.Dimension(66, 40));
 
-        jMenu1.setText("FILE");
+        jMenu1.setText("File");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jMenuBar1.add(jMenu1);
 
-        opt_help.setText("HELP");
+        opt_help.setText("Help");
         opt_help.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         opt_help.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

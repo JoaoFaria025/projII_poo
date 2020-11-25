@@ -1,14 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package converters;
 
-/**
- *
- * @author jvcco
- */
-public class AbstractConverter {
+public abstract class AbstractConverter{
+    private final String unitName;
+
+    public AbstractConverter(String unitName){
+        this.unitName = unitName;
+    }
+    public double toBasicUnit(double value) {
+           return value;
+	}
+    public double fromBasicUnit(double value) {
+           return value;
+    }
+ 
+    @Override
+    public String toString() {
+        return unitName;
+    }
     
 }

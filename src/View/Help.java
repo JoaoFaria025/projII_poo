@@ -16,6 +16,7 @@ public class Help extends javax.swing.JFrame {
      */
     public Help() {
         initComponents();
+        setLocationRelativeTo(null); //set jFrame to appear centered
     }
 
     /**

@@ -18,7 +18,6 @@ public class ConvertWindow extends javax.swing.JFrame {
      */
     public ConvertWindow() {
         initComponents();
-        setVisible(true);
         setLocationRelativeTo(null); //set jFrame to appear centered
     }
 

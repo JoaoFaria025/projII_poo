@@ -10,20 +10,20 @@ import converters.AbstractConverter;
  *
  * @author potedesorvete
  */
-public class KilometersPerHourConverter extends AbstractConverter {
-    public KilometersPerHourConverter() {
-        super("kilometer/h (km/h)");
+public class KnotConverter extends AbstractConverter {
+    public KnotConverter () {
+        super("Knot (kt)");
     }
 
      
      @Override
      public double toBasicUnit(double value) {
-         return value * 3.6; //Km/h para Metros/s
+         return value * 1.944; //Knot para Metros/s
      }
  
      @Override
      public double fromBasicUnit(double value) {
-         return value /3.6; // Metros/s paraKm/h
+         return value /1.944; //Metros/s para Knot
      }
  }
 

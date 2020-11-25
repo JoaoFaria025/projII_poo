@@ -2,18 +2,13 @@ package converters;
 
 public enum MeasureType {
     
-    DISTANCE("distance", "metre (m)"),
+    COMPRIMENTO("comprimento", "metre (m)"),
     AREA("area", "square metre (m\\u33a1)"),
     VOLUME("volume", "litre (L)"),
     MASS("mass", "kilogram (kg)"),
     TIME("time", "second (s)"),
     SPEED("speed", "m/s"),
-    ACCELERATION("accelerations", "m/s\u00b2"),
-    FORCE("force", "newton (N)"),
-    PRESSURE("pressure", "pascal (Pa)"),
-    ENERGY("energy", "joule (J)"),
-    POWER("power", "watt (W)"),
-    VISCOSITY("viscosity", "Pa·s");
+    ACCELERATION("accelerations", "m/s\u00b2");
    
     private final String type;
     private final String basicUnit;

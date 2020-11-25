@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package converters.Dados;
+package converters.Aceleration;
 
 /**
  *
  * @author jvcco
  */
-public class ByteConverter {
+public class MetresPerSecondsSquaredConverter {
     
 }

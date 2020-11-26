@@ -9,12 +9,12 @@ package program;
  *
  * @author htols
  */
-public class Help extends javax.swing.JFrame {
+public class Help_en extends javax.swing.JFrame {
 
     /**
      * Creates new form Help
      */
-    public Help() {
+    public Help_en() {
         initComponents();
         setLocationRelativeTo(null); //set jFrame to appear centered
     }
@@ -41,9 +41,9 @@ public class Help extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/unicamp (2).png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ICONVERT", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jTextPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMAÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jTextPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMATIONS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextPane1.setText("Esse programa foi feito com o objetivo de colocar em prática os conhecimentos adquiridos em Programação Orientada a Objetos II.");
+        jTextPane1.setText("This program was made with the objective of putting into practice the knowledge acquired in Object Oriented Programming II.");
         jTextPane1.setFocusable(false);
         jScrollPane2.setViewportView(jTextPane1);
 
@@ -99,20 +99,21 @@ public class Help extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Help.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Help_en.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Help.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Help_en.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Help.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Help_en.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Help.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Help_en.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Help().setVisible(true);
+                new Help_en().setVisible(true);
             }
         });
     }

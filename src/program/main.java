@@ -5,6 +5,7 @@
  */
 package program;
 
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,10 +14,23 @@ import javax.swing.JOptionPane;
  */
 public class main {
         public static void main(String[] args) {
-            
+        String idioma;
+        String pt = "pt";
+        String en = "en";
+        Locale loc = Locale.getDefault();
+        idioma = loc.getLanguage();
+        
+        
   try{
-        ConvertWindow main_frame = new ConvertWindow();
-        main_frame.setVisible(true);
+       if(idioma == pt){//se o idioma do computador for pt ele entra no if
+          ConvertWindow_en main_frame_en = new ConvertWindow_en();
+           main_frame_en.setVisible(true);
+       }
+       if(idioma == en){//se o idioma do computador for en ele entra no if
+           ConvertWindow_en main_frame_en = new ConvertWindow_en();
+           main_frame_en.setVisible(true);
+       }
+       
   }
   catch (Exception e) {
 	JOptionPane.showMessageDialog(null,"Error:" + e);

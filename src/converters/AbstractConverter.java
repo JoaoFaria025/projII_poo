@@ -6,12 +6,9 @@ public abstract class AbstractConverter{
     public AbstractConverter(String unitName){
         this.unitName = unitName;
     }
-    public double toBasicUnit(double value) {
-           return value;
-	}
-    public double fromBasicUnit(double value) {
-           return value;
-    }
+    
+   public abstract double toBasicUnit(double value);
+   public abstract double fromBasicUnit(double value);
  
     @Override
     public String toString() {

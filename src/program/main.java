@@ -22,14 +22,14 @@ public class main {
         
         
   try{
-       if(idioma == pt){//se o idioma do computador for pt ele entra no if
-          ConvertWindow_en main_frame_en = new ConvertWindow_en();
-           main_frame_en.setVisible(true);
-       }
-       if(idioma == en){//se o idioma do computador for en ele entra no if
-           ConvertWindow_en main_frame_en = new ConvertWindow_en();
-           main_frame_en.setVisible(true);
-       }
+      // if(idioma == pt){//se o idioma do computador for pt ele entra no if
+          ConvertWindow frame = new ConvertWindow();
+           frame.setVisible(true);
+      // }
+      // if(idioma == en){//se o idioma do computador for en ele entra no if
+       //    ConvertWindow_en main_frame_en = new ConvertWindow_en();
+       //    main_frame_en.setVisible(true);
+       //}
        
   }
   catch (Exception e) {

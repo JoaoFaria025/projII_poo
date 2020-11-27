@@ -348,6 +348,7 @@ public class ConvertWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (Combo_box_input.isPopupVisible()) { 
             JOptionPane.showMessageDialog(null, "Voce selecionou a");
+            ComboBox_output.addItem("ola");
         }
     }//GEN-LAST:event_Combo_box_inputActionPerformed
 

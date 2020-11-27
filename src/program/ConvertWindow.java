@@ -7,9 +7,12 @@ package program;
 
 
 import converters.AbstractConverter;
+import converters.CentimetreConverter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,7 +24,7 @@ public class ConvertWindow extends javax.swing.JFrame {
     /**
      * Creates new form ConvertWindow
      */
-    public ConvertWindow() {
+    public ConvertWindow() throws InstantiationException, IllegalAccessException  {
         initComponents();
         setLocationRelativeTo(null); //set jFrame to appear centered
         Combo_box_input.removeAllItems();
@@ -29,16 +32,27 @@ public class ConvertWindow extends javax.swing.JFrame {
         
         ArrayList<String> converterList = new ArrayList<>();
         
-        File file = new File("C:\\Users\\jvcco\\Documents\\GitHub\\projII_poo\\src\\converters\\classes");
+
+    
+        File file = new File("C:\\Users\\jvcco\\Documents\\GitHub\\projII_poo\\src\\converters");
         String[] arquivos = file.list();
+        
        for (String file_list : arquivos) {
-             converterList.add(file_list);
            
-         }
+         if(!(file_list.equals("AbstractConverter.java")) && !(file_list.equals("MeasureType.java")) && !(file_list.equals("classes"))){
+             try {
+                
+                String nome_class = file_list.substring(0, file_list.indexOf("."));
+                AbstractConverter a = (AbstractConverter) Class.forName("converters."+nome_class).newInstance();
+                converterList.add(a.getName() + file_list);
+             } catch (Exception e) {
+                 System.out.println(e);
+             } 
+         }   
+        }
         Collections.sort(converterList);
           for (String converter : converterList) {
                 Combo_box_input.addItem(converter);
-                ComboBox_output.addItem(converter);
             }
         
     }
@@ -136,7 +150,6 @@ public class ConvertWindow extends javax.swing.JFrame {
             }
         });
 
-        Output_values.setEditable(false);
         Output_values.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Output_values.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Output_values.addActionListener(new java.awt.event.ActionListener() {
@@ -154,6 +167,11 @@ public class ConvertWindow extends javax.swing.JFrame {
 
         Combo_box_input.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Metros", "Kilometros" }));
         Combo_box_input.setBorder(null);
+        Combo_box_input.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo_box_inputActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,7 +208,7 @@ public class ConvertWindow extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Output_values, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -202,7 +220,7 @@ public class ConvertWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Input_Values, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Combo_box_input, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Combo_box_input, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -289,28 +307,23 @@ public class ConvertWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_opt_helpMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String entrada_valor = (String) Combo_box_input.getSelectedItem();
-        String saida_valor = (String) ComboBox_output.getSelectedItem();
-        
-        if(entrada_valor.equals("Metros") && saida_valor.equals("Kilometros")){
-            double valor_text_entrada = Double.parseDouble(Input_Values.getText());
-            double valor_saida = valor_text_entrada *0.001;
-            Output_values.setText(String.valueOf(valor_saida));
-            
-        }
-         if(entrada_valor.equals("Kilometros") && saida_valor.equals("Metros")){
-            double valor_text_entrada = Double.parseDouble(Input_Values.getText());
-            double valor_saida = valor_text_entrada *1000;
-            Output_values.setText(String.valueOf(valor_saida));
-            
-        }
-        
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        JOptionPane.showMessageDialog(null, "Voce clicou em converter");
+        
+        AbstractConverter fromConverter =  (AbstractConverter) Combo_box_input.getSelectedItem();
+        AbstractConverter toConverter = (AbstractConverter) ComboBox_output.getSelectedItem();
+        double operand = 0;     
+        operand = Double.parseDouble(Input_Values.getText());
+        
+        double value = toConverter.fromBasicUnit(fromConverter.toBasicUnit(operand));
+         
+        Output_values.setText(Double.toString(value));
+        
+        
+        
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void Input_ValuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Input_ValuesActionPerformed
@@ -330,6 +343,13 @@ public class ConvertWindow extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_Clear_FieldsActionPerformed
+
+    private void Combo_box_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_box_inputActionPerformed
+        // TODO add your handling code here:
+        if (Combo_box_input.isPopupVisible()) { 
+            JOptionPane.showMessageDialog(null, "Voce selecionou X");
+        }
+    }//GEN-LAST:event_Combo_box_inputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,7 +381,15 @@ public class ConvertWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConvertWindow().setVisible(true);
+                try{
+                     new ConvertWindow().setVisible(true);
+                }
+                catch(Exception e){
+                    System.out.println(e);
+                    
+                }
+                   
+               
             }
         });
     }

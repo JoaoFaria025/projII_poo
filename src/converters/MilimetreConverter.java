@@ -5,8 +5,6 @@
  */
 package converters;
 
-import converters.AbstractConverter;
-import converters.AbstractConverter;
 
 /**
  *
@@ -15,7 +13,7 @@ import converters.AbstractConverter;
 public class MilimetreConverter extends AbstractConverter {
   
     public MilimetreConverter() {
-        super("Milimetro (mm)");
+       super("Milimetre (mm) [distance]:");
     }
 
     @Override

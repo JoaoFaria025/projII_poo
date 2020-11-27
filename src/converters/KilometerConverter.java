@@ -1,8 +1,6 @@
 
 package converters;
 
-import converters.AbstractConverter;
-import converters.AbstractConverter;
 
 /**
  *
@@ -11,7 +9,7 @@ import converters.AbstractConverter;
 public class KilometerConverter extends AbstractConverter {
   
     public KilometerConverter() {
-        super("kilometers (km)");
+        super("Kilometer (km) [distance]:");
     }
 
     @Override

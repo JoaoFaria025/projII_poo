@@ -9,7 +9,7 @@ public abstract class AbstractConverter{
     
    public abstract double toBasicUnit(double value);
    public abstract double fromBasicUnit(double value);
- 
+
     @Override
     public String toString() {
         return unitName;

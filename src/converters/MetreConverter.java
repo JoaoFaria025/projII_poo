@@ -5,8 +5,7 @@
  */
 package converters;
 
-import converters.AbstractConverter;
-import converters.AbstractConverter;
+
 
 /**
  *
@@ -15,7 +14,7 @@ import converters.AbstractConverter;
 public class MetreConverter extends AbstractConverter {
   
     public MetreConverter() {
-        super("metre (m)");
+        super("Metre (m) [distance]:");
     }
 
     @Override

@@ -5,8 +5,6 @@
  */
 package converters;
 
-import converters.AbstractConverter;
-import converters.AbstractConverter;
 
 /**
  *
@@ -14,7 +12,7 @@ import converters.AbstractConverter;
  */
 public class DecametreConverter extends AbstractConverter{
        public DecametreConverter() {
-        super("decametre (dam)");
+         super("Decametre (dam) [distance]:");
     }
 
     

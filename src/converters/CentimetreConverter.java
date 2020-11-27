@@ -12,7 +12,7 @@ package converters;
  */
 public class CentimetreConverter extends AbstractConverter {
        public CentimetreConverter() {
-        super("centimetre (cm) [distance]:");
+        super("Centimetre (cm) [distance]:");
     }
     
     

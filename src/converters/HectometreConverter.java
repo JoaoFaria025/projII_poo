@@ -5,8 +5,6 @@
  */
 package converters;
 
-import converters.AbstractConverter;
-import converters.AbstractConverter;
 
 /**
  *
@@ -14,7 +12,7 @@ import converters.AbstractConverter;
  */
 public class HectometreConverter extends AbstractConverter {
      public HectometreConverter() {
-        super("Hectometre (hm)");
+        super("Hectometre (hm) [distance]:");
     }
 
     

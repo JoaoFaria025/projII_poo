@@ -347,7 +347,7 @@ public class ConvertWindow extends javax.swing.JFrame {
     private void Combo_box_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_box_inputActionPerformed
         // TODO add your handling code here:
         if (Combo_box_input.isPopupVisible()) { 
-            JOptionPane.showMessageDialog(null, "Voce selecionou X");
+            JOptionPane.showMessageDialog(null, "Voce selecionou a");
         }
     }//GEN-LAST:event_Combo_box_inputActionPerformed
 

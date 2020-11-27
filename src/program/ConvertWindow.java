@@ -7,12 +7,10 @@ package program;
 
 
 import converters.AbstractConverter;
-import converters.CentimetreConverter;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +21,8 @@ public class ConvertWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form ConvertWindow
+     * @throws java.lang.InstantiationException
+     * @throws java.lang.IllegalAccessException
      */
     public ConvertWindow() throws InstantiationException, IllegalAccessException  {
         initComponents();
@@ -45,14 +45,15 @@ public class ConvertWindow extends javax.swing.JFrame {
                 String nome_class = file_list.substring(0, file_list.indexOf("."));
                 AbstractConverter a = (AbstractConverter) Class.forName("converters."+nome_class).newInstance();
                 converterList.add(a.getName() + file_list);
-             } catch (Exception e) {
+             } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
                  System.out.println(e);
              } 
          }   
         }
-        Collections.sort(converterList);
+        Collections.sort(converterList); //Colocar em ordem alfabética a lista
           for (String converter : converterList) {
                 Combo_box_input.addItem(converter);
+                 ComboBox_output.addItem(converter);
             }
         
     }
@@ -312,14 +313,14 @@ public class ConvertWindow extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         
-        AbstractConverter fromConverter =  (AbstractConverter) Combo_box_input.getSelectedItem();
-        AbstractConverter toConverter = (AbstractConverter) ComboBox_output.getSelectedItem();
-        double operand = 0;     
+      //  AbstractConverter fromConverter =  (AbstractConverter) Combo_box_input.getSelectedItem();
+       // AbstractConverter toConverter = (AbstractConverter) ComboBox_output.getSelectedItem();
+        double operand;  
         operand = Double.parseDouble(Input_Values.getText());
         
         double value = toConverter.fromBasicUnit(fromConverter.toBasicUnit(operand));
          
-        Output_values.setText(Double.toString(value));
+       System.out.println(value);
         
         
         

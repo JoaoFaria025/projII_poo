@@ -318,9 +318,9 @@ public class ConvertWindow extends javax.swing.JFrame {
         double operand;  
         operand = Double.parseDouble(Input_Values.getText());
         
-        double value = toConverter.fromBasicUnit(fromConverter.toBasicUnit(operand));
+        //double value = toConverter.fromBasicUnit(fromConverter.toBasicUnit(operand));
          
-       System.out.println(value);
+       //System.out.println(value);
         
         
         

@@ -13,7 +13,7 @@ import converters.AbstractConverter;
  */
 public class KilometersPerHourConverter extends AbstractConverter {
     public KilometersPerHourConverter() {
-        super("kilometer/h (km/h)");
+        super("kilometer/h (km/h) [speed]:");
     }
 
      
@@ -24,7 +24,7 @@ public class KilometersPerHourConverter extends AbstractConverter {
  
      @Override
      public double fromBasicUnit(double value) {
-         return value /3.6; // Metros/s paraKm/h
+         return value / 3.6; // Metros/s para Km/h
      }
  }
 

@@ -3,7 +3,7 @@ package converters;
 public enum MeasureType {
     
     DISTANCE("comprimento", "metre (m)"), //ok
-    AREA("area", "square metre (m\\u33a1)"),
+    AREA("area", "square metre (m\\u33a1)"),//ok
     VOLUME("volume", "litre (L)"),
     MASS("mass", "kilogram (kg)"),//ok
     TIME("time", "second (s)"),

@@ -13,7 +13,7 @@ import converters.AbstractConverter;
  */
 public class CubicMeterConverter extends AbstractConverter {
      public CubicMeterConverter() {
-        super("Cubic Meter (m^3) [area]:");
+        super("Cubic Meter (m^3) [areaa]:");
     }
 
     

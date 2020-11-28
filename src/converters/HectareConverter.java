@@ -5,8 +5,6 @@
  */
 package converters;
 
-import converters.AbstractConverter;
-import converters.AbstractConverter;
 
 /**
  *
@@ -14,7 +12,7 @@ import converters.AbstractConverter;
  */
 public class HectareConverter extends AbstractConverter {
      public HectareConverter() {
-        super("hectare (ha)");
+        super("hectare (ha) [area]:");
     }
 
     

@@ -16,7 +16,7 @@ public class MinutesConverter extends AbstractConverter{
     
     
      public MinutesConverter() {
-        super("Minutes (m)");
+        super("Minutes (m) [time]:");
     }
 
     

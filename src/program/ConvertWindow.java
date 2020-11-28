@@ -194,6 +194,7 @@ public class ConvertWindow extends javax.swing.JFrame {
             }
         });
 
+        Output_values.setEditable(false);
         Output_values.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Output_values.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Output_values.addActionListener(new java.awt.event.ActionListener() {

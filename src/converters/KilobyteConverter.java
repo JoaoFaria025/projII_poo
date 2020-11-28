@@ -5,18 +5,15 @@
  */
 package converters;
 
-import converters.AbstractConverter;
-import converters.AbstractConverter;
-
 /**
  *
- * @author jvcco
+ * @author vitor
  */
-public class MetresPerSecondsSquaredConverter extends AbstractConverter {
- public MetresPerSecondsSquaredConverter() {
-        super("m/s\u00b2");
+public class KilobyteConverter extends AbstractConverter{
+    public KilobyteConverter() {
+        super("Kilobyte (kB) [storage]:");
     }
-
+    
     @Override
     public double toBasicUnit(double value) {
         return value;

@@ -5,25 +5,22 @@
  */
 package converters;
 
-
-
 /**
  *
- * @author jvcco
+ * @author vitor
  */
-public class MetreConverter extends AbstractConverter {
-  
-    public MetreConverter() {
-        super("Metre (m) [distance]:");
+public class TerabyteConverter extends AbstractConverter{
+    public TerabyteConverter() {
+        super("Terabyte (TB) [storage]:");
     }
-
+    
     @Override
     public double toBasicUnit(double value) {
-        return value; //Metros para Metros
+        return value;
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value; //Metros para Metros
+        return value;
     }
 }

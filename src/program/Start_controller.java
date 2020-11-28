@@ -7,7 +7,7 @@ public class Start_controller {
 
     private String language;
     private String Path;
-     
+
     public String getlanguage() {
         return language;
     }
@@ -21,8 +21,8 @@ public class Start_controller {
             Locale locale_language = Locale.getDefault();
             setLanguage(locale_language.getLanguage());
             if (getlanguage().equals("pt")) {//se o idioma do computador for pt ele entra no if
-                ConvertWindow frame = new ConvertWindow();
-                frame.setVisible(true);
+                ConvertWindow main_frame_pt = new ConvertWindow();
+                main_frame_pt.setVisible(true);
             }
             if (getlanguage().equals("en")) {//se o idioma do computador for en ele entra no if
                 ConvertWindow_en main_frame_en = new ConvertWindow_en();

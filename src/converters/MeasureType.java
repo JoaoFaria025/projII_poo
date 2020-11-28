@@ -2,13 +2,13 @@ package converters;
 
 public enum MeasureType {
     
-    DISTANCE("comprimento", "meter (m)"), //ok
-    AREA("area", "square meter (m\\u33a1)"),//ok
+    DISTANCE("comprimento", "meter (m)"), //ok calculado
+    AREA("area", "square meter (m\\u33a1)"),//ok calculado
     VOLUME("volume", "litre (L)"), //ok
-    MASS("mass", "kilogram (kg)"),//ok
-    TIME("time", "second (s)"),//ok
-    SPEED("speed", "m/s"), //ok
-    ACCELERATION("acceleration", "m/s\u00b2"),
+    MASS("mass", "kilogram (kg)"),//ok calculado
+    TIME("time", "second (s)"),//ok calculado
+    SPEED("speed", "m/s"), //ok calculado
+    ACCELERATION("acceleration", "m/s\u00b2"),//ok calculado
     STORAGE("storage", "B");
    
     private final String type;

@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 public class Start_controller {
 
     private String language;
-    private String Path;
 
     public String getlanguage() {
         return language;

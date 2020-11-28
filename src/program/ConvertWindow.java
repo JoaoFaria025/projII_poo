@@ -356,14 +356,34 @@ public class ConvertWindow extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         
-      //  AbstractConverter fromConverter =  (AbstractConverter) Combo_box_input.getSelectedItem();
-       // AbstractConverter toConverter = (AbstractConverter) ComboBox_output.getSelectedItem();
-        double operand;  
-        operand = Double.parseDouble(Input_Values.getText());
-        
-        //double value = toConverter.fromBasicUnit(fromConverter.toBasicUnit(operand));
-         
-       //System.out.println(value);
+
+        try {
+            String selectedFrom = (String) ComboBox_input.getSelectedItem();
+            String selectedOut = (String) ComboBox_output.getSelectedItem();
+
+            //PEGANDO O NAME DA CLASSE FROM
+            int index_begin_from = selectedFrom.indexOf(":"); //primeiro indice para começar a pesquisar uma parte da string
+            int index_end_from = selectedFrom.indexOf("."); //ultimo indice onde para de buscar a string
+            String unit_from = selectedFrom.substring(index_begin_from + 1, index_end_from);
+            //PEGANDO O NAME DA CLASSE OUT
+            int index_begin_out = selectedOut.indexOf(":"); //primeiro indice para começar a pesquisar uma parte da string
+            int index_end_out = selectedOut.indexOf("."); //ultimo indice onde para de buscar a string
+            String unit_out = selectedOut.substring(index_begin_out + 1, index_end_out);
+
+            AbstractConverter selectedConvertFrom = (AbstractConverter) Class.forName("converters." + unit_from).newInstance();
+            AbstractConverter selectedConvertTo = (AbstractConverter) Class.forName("converters." + unit_out).newInstance();
+
+            String stringConvertFrom = Input_Values.getText();
+
+            double valueConvertFrom = Double.parseDouble(stringConvertFrom);
+
+            double value = selectedConvertTo.fromBasicUnit(selectedConvertFrom.toBasicUnit(valueConvertFrom));
+            Output_values.setText(Double.toString(value));
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
         
         
         

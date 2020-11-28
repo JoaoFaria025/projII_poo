@@ -53,7 +53,7 @@ public class ConvertWindow extends javax.swing.JFrame {
         Collections.sort(converterList); //Colocar em ordem alfabética a lista
           for (String converter : converterList) {
                 Combo_box_input.addItem(converter);
-                 ComboBox_output.addItem(converter);
+                // ComboBox_output.addItem(converter);
             }
         
     }

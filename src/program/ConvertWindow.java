@@ -44,7 +44,7 @@ public class ConvertWindow extends javax.swing.JFrame {
         
         ArrayList<String> converterList = new ArrayList<>();
         
-        File file = new File("C:\\Users\\vitor\\Documents\\GitHub\\projII_poo\\src\\converters");
+        File file = new File("C:\\Users\\jvcco\\Documents\\GitHub\\projII_poo\\src\\converters");
         String[] arquivos = file.list();
     
         for (String file_list : arquivos) {
@@ -63,28 +63,28 @@ public class ConvertWindow extends javax.swing.JFrame {
                     
                     //salva todas as classes de medida de acordo com o seu tipo em listas diferentes
                     if (unit.equals("distance")) {
-                        distanceList.add(a.getName()); 
+                        distanceList.add(a.getName() + file_list ); 
                     }
                     if (unit.equals("area")) {
-                        areaList.add(a.getName());
+                        areaList.add(a.getName()+ file_list);
                     }
                     if (unit.equals("volume")) {
-                        volumeList.add(a.getName());
+                        volumeList.add(a.getName()+ file_list);
                     }
                     if (unit.equals("mass")) {
-                        massList.add(a.getName());
+                        massList.add(a.getName()+ file_list);
                     }
                     if (unit.equals("time")) {
-                        timeList.add(a.getName());
+                        timeList.add(a.getName()+ file_list);
                     }
                     if (unit.equals("speed")) {
-                        speedList.add(a.getName());
+                        speedList.add(a.getName()+ file_list);
                     }
                     if (unit.equals("acceleration")) {
-                        accelerationList.add(a.getName());
+                        accelerationList.add(a.getName()+ file_list);
                     }
                     if (unit.equals("storage")) {
-                        storageList.add(a.getName());
+                        storageList.add(a.getName()+ file_list);
                     }
                     
                 }

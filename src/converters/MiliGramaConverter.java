@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class MiliGramaConverter extends AbstractConverter {
      public MiliGramaConverter() {
-        super("Miligrama (mg)");
+        super("Miligrama (mg) [mass]:");
     }
 
     

@@ -13,7 +13,7 @@ import converters.AbstractConverter;
  */
 public class MiliLitreConverter extends AbstractConverter {
      public MiliLitreConverter() {
-        super("MiliLitre (ml)");
+        super("MiliLitre (ml) [volume]:");
     }
 
     

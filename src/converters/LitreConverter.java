@@ -13,17 +13,17 @@ import converters.AbstractConverter;
  */
 public class LitreConverter extends AbstractConverter {
      public LitreConverter() {
-        super("Litre (hm)");
+        super("Litre (L) [volume]:");
     }
 
     
     @Override
     public double toBasicUnit(double value) {
-        return value; //Hectometre para Metros
+        return value;
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value; //Metros para Hectometre
+        return value;
     }
 }

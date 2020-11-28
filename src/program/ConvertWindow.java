@@ -34,7 +34,7 @@ public class ConvertWindow extends javax.swing.JFrame {
         
 
     
-        File file = new File("C:\\Users\\jvcco\\Documents\\GitHub\\projII_poo\\src\\converters");
+        File file = new File("C:\\Users\\vitor\\Documents\\GitHub\\projII_poo\\src\\converters");
         String[] arquivos = file.list();
         
        for (String file_list : arquivos) {

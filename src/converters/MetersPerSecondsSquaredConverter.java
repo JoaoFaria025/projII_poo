@@ -12,19 +12,18 @@ import converters.AbstractConverter;
  *
  * @author jvcco
  */
-public class KilometersPerHourSquaredConverter extends AbstractConverter {
-     public KilometersPerHourSquaredConverter() {
-        super("km/h\\u00b2  [acceleration]:");
+public class MetersPerSecondsSquaredConverter extends AbstractConverter {
+ public MetersPerSecondsSquaredConverter() {
+        super("m/s\u00b2");
     }
 
-    
     @Override
     public double toBasicUnit(double value) {
-        return value * 0.0000771604938; //km/h\u00b2 para m/s
+        return value;
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value * 12960; //m/s para km/h\u00b2
+        return value;
     }
 }

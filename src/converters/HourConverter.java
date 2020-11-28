@@ -16,7 +16,7 @@ public class HourConverter extends AbstractConverter{
     
     
      public HourConverter() {
-        super("hour (h) [time]:");
+        super("Hour (h) [time]:");
     }
 
     

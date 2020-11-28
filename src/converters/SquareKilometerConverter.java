@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class SquareKilometerConverter extends AbstractConverter {
      public SquareKilometerConverter() {
-        super("Kilometro quadrado(km^2)");
+        super("Kilometer^2 (km^2) [area]:");
     }
 
     

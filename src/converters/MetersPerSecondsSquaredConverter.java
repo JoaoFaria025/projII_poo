@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class MetersPerSecondsSquaredConverter extends AbstractConverter {
  public MetersPerSecondsSquaredConverter() {
-        super("m/s\u00b2");
+        super("Meters/s\u00b2 (m/s\u00b2) [acceleration]:");
     }
 
     @Override

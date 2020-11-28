@@ -12,7 +12,7 @@ package converters;
  */
 public class HectareConverter extends AbstractConverter {
      public HectareConverter() {
-        super("hectare (ha) [area]:");
+        super("Hectare (ha) [area]:");
     }
 
     

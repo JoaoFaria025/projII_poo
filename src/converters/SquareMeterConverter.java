@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class SquareMeterConverter extends AbstractConverter {
      public SquareMeterConverter() {
-        super("Metro quadrado(m^2)");
+        super("Meter^2 (m^2) [area]:");
     }
 
     

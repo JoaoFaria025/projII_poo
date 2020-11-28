@@ -13,7 +13,7 @@ import converters.AbstractConverter;
  */
 public class MilesPerHourConverter extends AbstractConverter {
     public MilesPerHourConverter () {
-        super("miles/h (mph)");
+        super("Miles/h (mph) [speed]:");
     }
 
      

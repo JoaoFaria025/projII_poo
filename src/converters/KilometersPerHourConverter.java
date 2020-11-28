@@ -13,7 +13,7 @@ import converters.AbstractConverter;
  */
 public class KilometersPerHourConverter extends AbstractConverter {
     public KilometersPerHourConverter() {
-        super("kilometer/h (km/h) [speed]:");
+        super("Kilometer/h (km/h) [speed]:");
     }
 
      

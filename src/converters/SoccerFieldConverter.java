@@ -5,25 +5,22 @@
  */
 package converters;
 
-import converters.AbstractConverter;
-
 /**
  *
- * @author jvcco
+ * @author vitor
  */
-public class KiloLitreConverter extends AbstractConverter {
-     public KiloLitreConverter() {
-        super("KiloLitre (kl) [volume]:");
+public class SoccerFieldConverter extends AbstractConverter{
+    public SoccerFieldConverter() {
+        super("Soccer Field - FIFA (--) [area]:");
     }
-
     
     @Override
     public double toBasicUnit(double value) {
-        return value * 1000; //KiloLitre para Litros
+        return value;
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value/1000; //Litros para KiloLitre
+        return value;
     }
 }

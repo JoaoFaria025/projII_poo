@@ -7,6 +7,7 @@ package program;
 
 
 import converters.AbstractConverter;
+import converters.MeasureType;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class ConvertWindow extends javax.swing.JFrame {
     public ConvertWindow() throws InstantiationException, IllegalAccessException  {
         initComponents();
         setLocationRelativeTo(null); //set jFrame to appear centered
-        Combo_box_input.removeAllItems();
+        ComboBox_input.removeAllItems();
         ComboBox_output.removeAllItems();
         
         ArrayList<String> converterList = new ArrayList<>();
@@ -52,7 +53,7 @@ public class ConvertWindow extends javax.swing.JFrame {
         }
         Collections.sort(converterList); //Colocar em ordem alfabética a lista
           for (String converter : converterList) {
-                Combo_box_input.addItem(converter);
+                ComboBox_input.addItem(converter);
                 // ComboBox_output.addItem(converter);
             }
         
@@ -83,7 +84,7 @@ public class ConvertWindow extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         Output_values = new javax.swing.JTextField();
         Clear_Fields = new javax.swing.JButton();
-        Combo_box_input = new javax.swing.JComboBox<>();
+        ComboBox_input = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         opt_help = new javax.swing.JMenu();
@@ -166,11 +167,11 @@ public class ConvertWindow extends javax.swing.JFrame {
             }
         });
 
-        Combo_box_input.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Metros", "Kilometros" }));
-        Combo_box_input.setBorder(null);
-        Combo_box_input.addActionListener(new java.awt.event.ActionListener() {
+        ComboBox_input.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Metros", "Kilometros" }));
+        ComboBox_input.setBorder(null);
+        ComboBox_input.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Combo_box_inputActionPerformed(evt);
+                ComboBox_inputActionPerformed(evt);
             }
         });
 
@@ -221,7 +222,7 @@ public class ConvertWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Input_Values, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Combo_box_input, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ComboBox_input, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -242,7 +243,7 @@ public class ConvertWindow extends javax.swing.JFrame {
                         .addComponent(Input_Values, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2))
                     .addComponent(jLabel4)
-                    .addComponent(Combo_box_input, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBox_input, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
@@ -345,13 +346,14 @@ public class ConvertWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Clear_FieldsActionPerformed
 
-    private void Combo_box_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_box_inputActionPerformed
+    private void ComboBox_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_inputActionPerformed
         // TODO add your handling code here:
-        if (Combo_box_input.isPopupVisible()) { 
+
+        if (ComboBox_input.isPopupVisible()) { 
             JOptionPane.showMessageDialog(null, "Voce selecionou a");
             ComboBox_output.addItem("ola");
         }
-    }//GEN-LAST:event_Combo_box_inputActionPerformed
+    }//GEN-LAST:event_ComboBox_inputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,8 +400,8 @@ public class ConvertWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Clear_Fields;
+    private javax.swing.JComboBox<String> ComboBox_input;
     private javax.swing.JComboBox<String> ComboBox_output;
-    private javax.swing.JComboBox<String> Combo_box_input;
     private javax.swing.JTextField Input_Values;
     private javax.swing.JTextField Output_values;
     private javax.swing.JButton jButton1;

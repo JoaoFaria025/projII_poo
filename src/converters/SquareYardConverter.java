@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class SquareYardConverter extends AbstractConverter {
      public SquareYardConverter() {
-        super("Square Yard(yd)");
+        super("Square Yard (yd) [distance]:");
     }
 
     

@@ -11,9 +11,9 @@ import converters.AbstractConverter;
  *
  * @author potedesorvete
  */
-public class FootsPerSecondConverter extends AbstractConverter {
-    public FootsPerSecondConverter() {
-        super("Foots/s (fps)");
+public class FeetPerSecondConverter extends AbstractConverter {
+    public FeetPerSecondConverter() {
+        super("Foots/s (fps) [speed]:");
     }
 
      

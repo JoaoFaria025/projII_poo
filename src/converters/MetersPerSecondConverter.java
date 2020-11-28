@@ -13,7 +13,7 @@ import converters.AbstractConverter;
  */
 public class MetersPerSecondConverter extends AbstractConverter {
     public MetersPerSecondConverter () {
-        super("meters/s (m/s) [speed]: ");
+        super("Meters/s (m/s) [speed]: ");
     }
 
      

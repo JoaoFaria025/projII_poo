@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class KilometersPerHourSquaredConverter extends AbstractConverter {
      public KilometersPerHourSquaredConverter() {
-        super("km/h\\u00b2");
+        super("Kilometer/h\u00b2 (km/h\u00b2) [acceleration]:");
     }
 
     

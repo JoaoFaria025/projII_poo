@@ -13,7 +13,7 @@ import converters.AbstractConverter;
  */
 public class KnotConverter extends AbstractConverter {
     public KnotConverter () {
-        super("Knot (kt)");
+        super("Knot (kt) [speed]:");
     }
 
      

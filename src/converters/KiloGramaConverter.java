@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class KiloGramaConverter extends AbstractConverter {
      public KiloGramaConverter() {
-        super("KiloGrama (kg)");
+        super("KiloGrama (kg)[mass]:");
     }
 
     

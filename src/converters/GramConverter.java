@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class GramConverter extends AbstractConverter {
      public GramConverter() {
-        super("Grama (g)");
+        super("Grama (g) [mass]:");
     }
 
     

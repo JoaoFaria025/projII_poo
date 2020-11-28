@@ -12,6 +12,7 @@ import converters.MeasureType;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +26,16 @@ public class ConvertWindow extends javax.swing.JFrame {
      * @throws java.lang.InstantiationException
      * @throws java.lang.IllegalAccessException
      */
+    
+    ArrayList<String> distanceList = new ArrayList<>();
+    ArrayList<String> areaList = new ArrayList<>();
+    ArrayList<String> volumeList = new ArrayList<>();
+    ArrayList<String> massList = new ArrayList<>();
+    ArrayList<String> timeList = new ArrayList<>();
+    ArrayList<String> speedList = new ArrayList<>();
+    ArrayList<String> accelerationList = new ArrayList<>();
+    ArrayList<String> storageList = new ArrayList<>();
+    
     public ConvertWindow() throws InstantiationException, IllegalAccessException  {
         initComponents();
         setLocationRelativeTo(null); //set jFrame to appear centered
@@ -33,29 +44,60 @@ public class ConvertWindow extends javax.swing.JFrame {
         
         ArrayList<String> converterList = new ArrayList<>();
         
-
-    
         File file = new File("C:\\Users\\vitor\\Documents\\GitHub\\projII_poo\\src\\converters");
         String[] arquivos = file.list();
-        
-       for (String file_list : arquivos) {
+    
+        for (String file_list : arquivos) {
            
-         if(!(file_list.equals("AbstractConverter.java")) && !(file_list.equals("MeasureType.java")) && !(file_list.equals("classes"))){
-             try {
-                
-                String nome_class = file_list.substring(0, file_list.indexOf("."));
-                AbstractConverter a = (AbstractConverter) Class.forName("converters."+nome_class).newInstance();
-                converterList.add(a.getName() + file_list);
-             } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-                 System.out.println(e);
-             } 
-         }   
-        }
+            if(!(file_list.equals("AbstractConverter.java")) && !(file_list.equals("MeasureType.java")) && !(file_list.equals("classes"))){
+                try {
+                    String nome_class = file_list.substring(0, file_list.indexOf("."));
+                    AbstractConverter a = (AbstractConverter) Class.forName("converters."+nome_class).newInstance();
+                    converterList.add(a.getName() + file_list);
+                    
+                    // ----------------- PARTE DE FILTRAR A COMBOBOX -------------------
+
+                    int index_begin = a.getName().indexOf("["); //primeiro indice para começar a pesquisar uma parte da string
+                    int index_end = a.getName().indexOf("]"); //ultimo indice onde para de buscar a string
+                    String unit = a.getName().substring(index_begin + 1, index_end); //pega a parte que estava dentro dos limites dos indices "[]" , por exemplo : [distance] -> 'distance' 
+                    
+                    //salva todas as classes de medida de acordo com o seu tipo em listas diferentes
+                    if (unit.equals("distance")) {
+                        distanceList.add(a.getName()); 
+                    }
+                    if (unit.equals("area")) {
+                        areaList.add(a.getName());
+                    }
+                    if (unit.equals("volume")) {
+                        volumeList.add(a.getName());
+                    }
+                    if (unit.equals("mass")) {
+                        massList.add(a.getName());
+                    }
+                    if (unit.equals("time")) {
+                        timeList.add(a.getName());
+                    }
+                    if (unit.equals("speed")) {
+                        speedList.add(a.getName());
+                    }
+                    if (unit.equals("acceleration")) {
+                        accelerationList.add(a.getName());
+                    }
+                    if (unit.equals("storage")) {
+                        storageList.add(a.getName());
+                    }
+                    
+                }
+                catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+                    System.out.println(e);
+                } 
+            }   
+        }   
         Collections.sort(converterList); //Colocar em ordem alfabética a lista
-          for (String converter : converterList) {
-                ComboBox_input.addItem(converter);
-                // ComboBox_output.addItem(converter);
-            }
+        for (String converter : converterList) {
+            ComboBox_input.addItem(converter);
+            
+        }
         
     }
 
@@ -348,10 +390,43 @@ public class ConvertWindow extends javax.swing.JFrame {
 
     private void ComboBox_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_inputActionPerformed
         // TODO add your handling code here:
-
+        
+        ArrayList <String> list_selected = new ArrayList();
+        ComboBox_output.removeAllItems();
+        
         if (ComboBox_input.isPopupVisible()) { 
-            JOptionPane.showMessageDialog(null, "Voce selecionou a");
-            ComboBox_output.addItem("ola");
+            
+            String unit_selected = (String) ComboBox_input.getSelectedItem(); //pega o item que foi seleciona na combobox de entrada
+            int index_begin = unit_selected.indexOf("["); //procura string
+            int index_end = unit_selected.indexOf("]"); //procura string
+            String unit = unit_selected.substring(index_begin + 1, index_end); //procura string
+            JOptionPane.showMessageDialog(null, "A measure type of " + unit + " was selected."); //identifica qual tipo de medida foi selecionado
+            
+            if (unit.equals("distance")) {
+                ComboBox_output.setModel(new DefaultComboBoxModel<String>(distanceList.toArray(new String[0])));
+            }
+            if (unit.equals("area")) {
+                ComboBox_output.setModel(new DefaultComboBoxModel<String>(areaList.toArray(new String[0])));
+            }
+            if (unit.equals("volume")) {
+                ComboBox_output.setModel(new DefaultComboBoxModel<String>(volumeList.toArray(new String[0])));
+            }
+            if (unit.equals("mass")) {
+                ComboBox_output.setModel(new DefaultComboBoxModel<String>(massList.toArray(new String[0])));
+            }
+            if (unit.equals("time")) {
+                ComboBox_output.setModel(new DefaultComboBoxModel<String>(timeList.toArray(new String[0])));
+            }
+            if (unit.equals("speed")) {
+                ComboBox_output.setModel(new DefaultComboBoxModel<String>(speedList.toArray(new String[0])));
+            }
+            if (unit.equals("acceleration")) {
+                ComboBox_output.setModel(new DefaultComboBoxModel<String>(accelerationList.toArray(new String[0])));
+            }
+            if (unit.equals("storage")) {
+                ComboBox_output.setModel(new DefaultComboBoxModel<String>(storageList.toArray(new String[0])));
+            }
+            
         }
     }//GEN-LAST:event_ComboBox_inputActionPerformed
 

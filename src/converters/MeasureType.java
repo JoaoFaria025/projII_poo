@@ -8,7 +8,7 @@ public enum MeasureType {
     MASS("mass", "kilogram (kg)"),//ok
     TIME("time", "second (s)"),//ok
     SPEED("speed", "m/s"), //ok
-    ACCELERATION("accelerations", "m/s\u00b2"),
+    ACCELERATION("acceleration", "m/s\u00b2"),
     STORAGE("storage", "B");
    
     private final String type;

@@ -7,13 +7,11 @@ public abstract class AbstractConverter{
         this.unitName = unitName;
     }
 
-    public abstract double toBasicUnit(double value);
+    public abstract double toBasicUnit(double unit);
     public abstract double fromBasicUnit(double value);
 
 
      public String getName() {
         return unitName;
-    }
-
-
+    }    
 }

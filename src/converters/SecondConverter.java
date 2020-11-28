@@ -14,7 +14,7 @@ import converters.AbstractConverter;
  */
 public class SecondConverter extends AbstractConverter {
        public SecondConverter() {
-        super("Second (s)");
+        super("Second (s) [time]:");
     }
 
     

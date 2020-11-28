@@ -1,31 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package program;
 
-
 import converters.AbstractConverter;
-import converters.MeasureType;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author htols
- */
 public class ConvertWindow extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ConvertWindow
-     * @throws java.lang.InstantiationException
-     * @throws java.lang.IllegalAccessException
-     */
     
     ArrayList<String> distanceList = new ArrayList<>();
     ArrayList<String> areaList = new ArrayList<>();
@@ -38,13 +21,13 @@ public class ConvertWindow extends javax.swing.JFrame {
     
     public ConvertWindow() throws InstantiationException, IllegalAccessException  {
         initComponents();
-        setLocationRelativeTo(null); //set jFrame to appear centered
+        this.setLocationRelativeTo(null); //set jFrame to appear centered
         ComboBox_input.removeAllItems();
         ComboBox_output.removeAllItems();
         
         ArrayList<String> converterList = new ArrayList<>();
         
-        File file = new File("C:\\Users\\vitor\\Documents\\GitHub\\projII_poo\\src\\converters");
+        File file = new File("C:\\Users\\jvcco\\Documents\\GitHub\\projII_poo\\src\\converters");
         String[] arquivos = file.list();
     
         for (String file_list : arquivos) {
@@ -123,7 +106,6 @@ public class ConvertWindow extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         Output_values = new javax.swing.JTextField();
         Clear_Fields = new javax.swing.JButton();
         ComboBox_input = new javax.swing.JComboBox<>();
@@ -149,11 +131,6 @@ public class ConvertWindow extends javax.swing.JFrame {
 
         Input_Values.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Input_Values.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Input_Values.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Input_ValuesActionPerformed(evt);
-            }
-        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_numbers_35px.png"))); // NOI18N
         jLabel2.setInheritsPopupMenu(false);
@@ -161,8 +138,12 @@ public class ConvertWindow extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_currency_exchange_35px.png"))); // NOI18N
         jLabel4.setInheritsPopupMenu(false);
 
-        ComboBox_output.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Metros", "Kilometros" }));
         ComboBox_output.setBorder(null);
+        ComboBox_output.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBox_outputActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,26 +163,9 @@ public class ConvertWindow extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Olá! Seja bem vindo ao ICONVERT ");
 
-        jButton1.setText("Converter");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         Output_values.setEditable(false);
         Output_values.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Output_values.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Output_values.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Output_valuesActionPerformed(evt);
-            }
-        });
 
         Clear_Fields.setText("Limpar");
         Clear_Fields.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +174,6 @@ public class ConvertWindow extends javax.swing.JFrame {
             }
         });
 
-        ComboBox_input.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Metros", "Kilometros" }));
         ComboBox_input.setBorder(null);
         ComboBox_input.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,13 +188,21 @@ public class ConvertWindow extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(283, 283, 283)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Input_Values, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ComboBox_input, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addComponent(jLabel8))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Clear_Fields, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -252,21 +223,11 @@ public class ConvertWindow extends javax.swing.JFrame {
                                 .addGap(23, 23, 23)))
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(Output_values, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Output_values, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(234, 234, 234)
+                        .addComponent(Clear_Fields, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(283, 283, 283)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Input_Values, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ComboBox_input, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +255,7 @@ public class ConvertWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -302,10 +263,8 @@ public class ConvertWindow extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(Output_values, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(Clear_Fields))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(Clear_Fields)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -351,69 +310,15 @@ public class ConvertWindow extends javax.swing.JFrame {
        
     }//GEN-LAST:event_opt_helpMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        
-
-        try {
-            String selectedFrom = (String) ComboBox_input.getSelectedItem();
-            String selectedOut = (String) ComboBox_output.getSelectedItem();
-
-            //PEGANDO O NAME DA CLASSE FROM
-            int index_begin_from = selectedFrom.indexOf(":"); //primeiro indice para começar a pesquisar uma parte da string
-            int index_end_from = selectedFrom.indexOf("."); //ultimo indice onde para de buscar a string
-            String unit_from = selectedFrom.substring(index_begin_from + 1, index_end_from);
-            //PEGANDO O NAME DA CLASSE OUT
-            int index_begin_out = selectedOut.indexOf(":"); //primeiro indice para começar a pesquisar uma parte da string
-            int index_end_out = selectedOut.indexOf("."); //ultimo indice onde para de buscar a string
-            String unit_out = selectedOut.substring(index_begin_out + 1, index_end_out);
-
-            AbstractConverter selectedConvertFrom = (AbstractConverter) Class.forName("converters." + unit_from).newInstance();
-            AbstractConverter selectedConvertTo = (AbstractConverter) Class.forName("converters." + unit_out).newInstance();
-
-            String stringConvertFrom = Input_Values.getText();
-
-            double valueConvertFrom = Double.parseDouble(stringConvertFrom);
-
-            double value = selectedConvertTo.fromBasicUnit(selectedConvertFrom.toBasicUnit(valueConvertFrom));
-            Output_values.setText(Double.toString(value));
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        
-        
-        
-        
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void Input_ValuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Input_ValuesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Input_ValuesActionPerformed
-
-    private void Output_valuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Output_valuesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Output_valuesActionPerformed
-
     private void Clear_FieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clear_FieldsActionPerformed
         // TODO add your handling code here:
-        
         Input_Values.setText("");
         Output_values.setText("");
-        
-        
-        
     }//GEN-LAST:event_Clear_FieldsActionPerformed
 
     private void ComboBox_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_inputActionPerformed
         // TODO add your handling code here:
-        
         ComboBox_output.removeAllItems();
-        
         if (ComboBox_input.isPopupVisible()) { 
             
             String unit_selected = (String) ComboBox_input.getSelectedItem(); //pega o item que foi seleciona na combobox de entrada
@@ -446,9 +351,42 @@ public class ConvertWindow extends javax.swing.JFrame {
             if (unit.equals("storage")) {
                 ComboBox_output.setModel(new DefaultComboBoxModel<String>(storageList.toArray(new String[0])));
             }
-            
         }
     }//GEN-LAST:event_ComboBox_inputActionPerformed
+
+    private void ComboBox_outputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_outputActionPerformed
+         if (ComboBox_output.isPopupVisible()) { 
+             
+        try {
+            String selectedFrom = (String) ComboBox_input.getSelectedItem();
+            String selectedOut = (String) ComboBox_output.getSelectedItem();
+
+            //PEGANDO O NAME DA CLASSE FROM
+            int index_begin_from = selectedFrom.indexOf(":"); //primeiro indice para começar a pesquisar uma parte da string
+            int index_end_from = selectedFrom.indexOf("."); //ultimo indice onde para de buscar a string
+            String unit_from = selectedFrom.substring(index_begin_from + 1, index_end_from);
+            //PEGANDO O NAME DA CLASSE OUT
+            int index_begin_out = selectedOut.indexOf(":"); //primeiro indice para começar a pesquisar uma parte da string
+            int index_end_out = selectedOut.indexOf("."); //ultimo indice onde para de buscar a string
+            String unit_out = selectedOut.substring(index_begin_out + 1, index_end_out);
+
+            AbstractConverter selectedConvertFrom = (AbstractConverter) Class.forName("converters." + unit_from).newInstance();
+            AbstractConverter selectedConvertTo = (AbstractConverter) Class.forName("converters." + unit_out).newInstance();
+
+            String stringConvertFrom = Input_Values.getText();
+
+            double valueConvertFrom = Double.parseDouble(stringConvertFrom);
+
+            double value = selectedConvertTo.fromBasicUnit(selectedConvertFrom.toBasicUnit(valueConvertFrom));
+            Output_values.setText(Double.toString(value));
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+             
+         
+         }
+    }//GEN-LAST:event_ComboBox_outputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -499,7 +437,6 @@ public class ConvertWindow extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboBox_output;
     private javax.swing.JTextField Input_Values;
     private javax.swing.JTextField Output_values;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

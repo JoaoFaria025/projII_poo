@@ -3,12 +3,12 @@ package converters;
 public enum MeasureType {
     
     DISTANCE("comprimento", "metre (m)"), //ok
-    AREA("area", "square metre (m²)"),
+    AREA("area", "square metre (m\\u33a1)"),
     VOLUME("volume", "litre (L)"),
     MASS("mass", "kilogram (kg)"),
     TIME("time", "second (s)"),
     SPEED("speed", "m/s"), 
-    ACCELERATION("accelerations", "m/s²"),
+    ACCELERATION("accelerations", "m/s\u00b2"),
     FORCE("force", "newton (N)"),
     PRESSURE("pressure", "pascal (Pa)"),
     ENERGY("energy", "joule (J)"),

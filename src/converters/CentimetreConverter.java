@@ -12,7 +12,7 @@ package converters;
  */
 public class CentimetreConverter extends AbstractConverter {
        public CentimetreConverter() {
-        super("Centimetre (m/s²) [distance]:");
+        super("Centimetre (cm) [distance]:");
     }
     
     

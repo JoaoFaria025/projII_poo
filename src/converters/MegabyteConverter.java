@@ -16,11 +16,11 @@ public class MegabyteConverter extends AbstractConverter{
     
     @Override
     public double toBasicUnit(double value) {
-        return value;
+        return value; //Megabyte para megabyte
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value;
+        return value; //Megabyte para megabyte
     }
 }

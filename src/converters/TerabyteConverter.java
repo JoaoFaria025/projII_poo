@@ -16,11 +16,11 @@ public class TerabyteConverter extends AbstractConverter{
     
     @Override
     public double toBasicUnit(double value) {
-        return value;
+        return value * 10000000; //Terabyte para megabyte
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value;
+        return value / 10000000; //Megabyte para terabyte
     }
 }

@@ -9,7 +9,7 @@ public enum MeasureType {
     TIME("time", "second (s)"),//ok calculado
     SPEED("speed", "m/s"), //ok calculado
     ACCELERATION("acceleration", "m/s\u00b2"),//ok calculado
-    STORAGE("storage", "B");
+    STORAGE("storage", "mb");
    
     private final String type;
     private final String basicUnit;

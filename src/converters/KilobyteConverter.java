@@ -16,11 +16,11 @@ public class KilobyteConverter extends AbstractConverter{
     
     @Override
     public double toBasicUnit(double value) {
-        return value;
+        return value / 1000; //Kilobyte para megabyte
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value;
+        return value * 1000; //Megabyte para kilobyte
     }
 }

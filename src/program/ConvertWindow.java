@@ -44,7 +44,7 @@ public class ConvertWindow extends javax.swing.JFrame {
         
         ArrayList<String> converterList = new ArrayList<>();
         
-        File file = new File("C:\\Users\\jvcco\\Documents\\GitHub\\projII_poo\\src\\converters");
+        File file = new File("C:\\Users\\vitor\\Documents\\GitHub\\projII_poo\\src\\converters");
         String[] arquivos = file.list();
     
         for (String file_list : arquivos) {
@@ -411,7 +411,6 @@ public class ConvertWindow extends javax.swing.JFrame {
     private void ComboBox_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_inputActionPerformed
         // TODO add your handling code here:
         
-        ArrayList <String> list_selected = new ArrayList();
         ComboBox_output.removeAllItems();
         
         if (ComboBox_input.isPopupVisible()) { 

@@ -16,12 +16,12 @@ public class ByteConverter extends AbstractConverter{
     
     @Override
     public double toBasicUnit(double value) {
-        return value;
+        return value / 10000000; //Byte para megabyte
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value;
+        return value * 10000000; //Megabyte para byte
     }
 }
 

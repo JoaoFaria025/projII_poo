@@ -16,11 +16,11 @@ public class GigabyteConverter extends AbstractConverter{
     
     @Override
     public double toBasicUnit(double value) {
-        return value;
+        return value * 1000; //Gigabyte para megabyte
     }
 
     @Override
     public double fromBasicUnit(double value) {
-        return value;
+        return value / 1000 ; //Megabyte para gigabyte
     }
 }

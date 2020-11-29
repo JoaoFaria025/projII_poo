@@ -5,17 +5,28 @@
  */
 package program;
 
+import java.util.Locale;
+
 /**
  *
  * @author htols
  */
 public class Manual extends javax.swing.JFrame {
-
+    private String en = "en";
+      
+    private void HelpENGLISH(){//traduzindo os valores
+       jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/manual_2.0_en.png")));   
+    }
     /**
      * Creates new form Manual
      */
     public Manual() {
+        Locale loc = Locale.getDefault();//pegar idioma do sistema
+        
         initComponents();
+         if(loc.getLanguage() == en){
+                HelpENGLISH();
+            }
          setLocationRelativeTo(null); //set jFrame to appear centered
     }
 

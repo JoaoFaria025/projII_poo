@@ -3,17 +3,44 @@ package program;
 
 
 import java.awt.HeadlessException;
+import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public final class ConvertWindow extends javax.swing.JFrame {
-
+      private String en = "en";
       ConvertList_Name converter_lister = new ConvertList_Name();
       
+    private void ConvertWindowENGLISH(){//traduzindo os valores
+        //jframe
+        setTitle("ICONVERT - Unit Conversion");
+        //menu
+        menuAjuda.setText("Help");
+        menuArquivo.setText("File");
+        optCreditos.setText("Credits");
+        optSair.setText("Exit");
+        optManual.setText("Manual");
+        
+        //label
+        labelBoasVindas.setText("Hi! Welcome to ICONVERT");
+        labelEntrada.setText("Input values");
+        labelOutput.setText("Output values");
+        
+        //btn
+        Clear_Fields.setText("Clear");
+        
+    }
     public ConvertWindow() throws InstantiationException, IllegalAccessException {
-
+       Locale loc = Locale.getDefault();//pegar idioma do sistema
+       
         try {
+            
             initComponents();
+     
+            if(loc.getLanguage() == en){
+                ConvertWindowENGLISH();
+            }
+            
             this.setLocationRelativeTo(null); //set jFrame to appear centered
             this.ComboBox_input.removeAllItems();
             this.ComboBox_output.removeAllItems();
@@ -34,23 +61,23 @@ public final class ConvertWindow extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        labelEntrada = new javax.swing.JLabel();
         Input_Values = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         ComboBox_output = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        labelOutput = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        labelBoasVindas = new javax.swing.JLabel();
         Output_values = new javax.swing.JTextField();
         Clear_Fields = new javax.swing.JButton();
         ComboBox_input = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuArquivo = new javax.swing.JMenu();
         optSair = new javax.swing.JMenuItem();
-        opt_help = new javax.swing.JMenu();
+        menuAjuda = new javax.swing.JMenu();
         optManual = new javax.swing.JMenuItem();
         optCreditos = new javax.swing.JMenuItem();
 
@@ -66,9 +93,9 @@ public final class ConvertWindow extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(70, 4));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Entrada dos valores");
+        labelEntrada.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        labelEntrada.setForeground(new java.awt.Color(255, 255, 255));
+        labelEntrada.setText("Entrada dos valores");
 
         Input_Values.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Input_Values.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -86,9 +113,9 @@ public final class ConvertWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Saída dos valores");
+        labelOutput.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        labelOutput.setForeground(new java.awt.Color(255, 255, 255));
+        labelOutput.setText("Saída dos valores");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(70, 4));
@@ -100,9 +127,9 @@ public final class ConvertWindow extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_right_arrow_35px.png"))); // NOI18N
         jLabel6.setInheritsPopupMenu(false);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Olá! Seja bem vindo ao ICONVERT ");
+        labelBoasVindas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelBoasVindas.setForeground(new java.awt.Color(255, 255, 255));
+        labelBoasVindas.setText("Olá! Seja bem vindo ao ICONVERT ");
 
         Output_values.setEditable(false);
         Output_values.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -132,12 +159,12 @@ public final class ConvertWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3))
+                        .addComponent(labelOutput))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jLabel1))
+                            .addComponent(labelEntrada))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -166,14 +193,14 @@ public final class ConvertWindow extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
-                .addComponent(jLabel8)
+                .addComponent(labelBoasVindas)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabel8)
+                .addComponent(labelBoasVindas)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
@@ -181,7 +208,7 @@ public final class ConvertWindow extends javax.swing.JFrame {
                         .addGap(26, 26, 26))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
+                        .addComponent(labelEntrada)
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +219,7 @@ public final class ConvertWindow extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jLabel3))
+                        .addComponent(labelOutput))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -218,8 +245,8 @@ public final class ConvertWindow extends javax.swing.JFrame {
         jMenuBar1.setOpaque(false);
         jMenuBar1.setPreferredSize(new java.awt.Dimension(66, 40));
 
-        jMenu1.setText("Arquivo");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        menuArquivo.setText("Arquivo");
+        menuArquivo.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
 
         optSair.setText("Sair");
         optSair.addActionListener(new java.awt.event.ActionListener() {
@@ -227,12 +254,12 @@ public final class ConvertWindow extends javax.swing.JFrame {
                 optSairActionPerformed(evt);
             }
         });
-        jMenu1.add(optSair);
+        menuArquivo.add(optSair);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuArquivo);
 
-        opt_help.setText("Ajuda");
-        opt_help.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        menuAjuda.setText("Ajuda");
+        menuAjuda.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
 
         optManual.setText("Como usar o ICONVERT");
         optManual.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +267,7 @@ public final class ConvertWindow extends javax.swing.JFrame {
                 optManualActionPerformed(evt);
             }
         });
-        opt_help.add(optManual);
+        menuAjuda.add(optManual);
 
         optCreditos.setText("Créditos");
         optCreditos.addActionListener(new java.awt.event.ActionListener() {
@@ -248,9 +275,9 @@ public final class ConvertWindow extends javax.swing.JFrame {
                 optCreditosActionPerformed(evt);
             }
         });
-        opt_help.add(optCreditos);
+        menuAjuda.add(optCreditos);
 
-        jMenuBar1.add(opt_help);
+        jMenuBar1.add(menuAjuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -278,7 +305,7 @@ public final class ConvertWindow extends javax.swing.JFrame {
         Input_Values.setText("");
         Output_values.setText("");
     }//GEN-LAST:event_Clear_FieldsActionPerformed
-
+    
     private void ComboBox_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_inputActionPerformed
         try {
             this.ComboBox_output.removeAllItems();
@@ -368,22 +395,22 @@ public final class ConvertWindow extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboBox_output;
     private javax.swing.JTextField Input_Values;
     private javax.swing.JTextField Output_values;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel labelBoasVindas;
+    private javax.swing.JLabel labelEntrada;
+    private javax.swing.JLabel labelOutput;
+    private javax.swing.JMenu menuAjuda;
+    private javax.swing.JMenu menuArquivo;
     private javax.swing.JMenuItem optCreditos;
     private javax.swing.JMenuItem optManual;
     private javax.swing.JMenuItem optSair;
-    private javax.swing.JMenu opt_help;
     // End of variables declaration//GEN-END:variables
 }

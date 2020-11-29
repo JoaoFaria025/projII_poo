@@ -16,7 +16,7 @@ public class Start_controller {
     }
 
     public void start() {
-        try {
+       /* try {
             Locale locale_language = Locale.getDefault();
             setLanguage(locale_language.getLanguage());
             if (getlanguage().equals("pt")) {//se o idioma do computador for pt ele entra no if
@@ -31,6 +31,6 @@ public class Start_controller {
             }
         } catch (IllegalAccessException | InstantiationException e) {
             JOptionPane.showMessageDialog(null, "Error:" + e);
-        }
+        }*/
     }
 }

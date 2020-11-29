@@ -5,17 +5,33 @@
  */
 package program;
 
+import java.util.Locale;
+
 /**
  *
  * @author htols
  */
 public class Help extends javax.swing.JFrame {
-
+    private String en = "en";
+      
+    private void HelpENGLISH(){//traduzindo os valores
+        //jframe
+        setTitle("ICONVERT - Unit Conversion");
+        //menu
+        txtPane.setText("This program was made with the objective of putting into practice the knowledge acquired in Object Oriented Programming II.");
+        txtPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMATION", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14)));
+        
+    }
     /**
      * Creates new form Help
      */
     public Help() {
+        Locale loc = Locale.getDefault();//pegar idioma do sistema
+        
         initComponents();
+         if(loc.getLanguage() == en){
+                HelpENGLISH();
+            }
         setLocationRelativeTo(null); //set jFrame to appear centered
     }
 
@@ -31,7 +47,7 @@ public class Help extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtPane = new javax.swing.JTextPane();
 
         setTitle("Ajuda - Conversor de Unidades");
 
@@ -41,11 +57,11 @@ public class Help extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/unicamp (2).png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ICONVERT", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jTextPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMAÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
-        jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextPane1.setText("Esse programa foi feito com o objetivo de colocar em prática os conhecimentos adquiridos em Programação Orientada a Objetos II.");
-        jTextPane1.setFocusable(false);
-        jScrollPane2.setViewportView(jTextPane1);
+        txtPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMAÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        txtPane.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtPane.setText("Esse programa foi feito com o objetivo de colocar em prática os conhecimentos adquiridos em Programação Orientada a Objetos II.");
+        txtPane.setFocusable(false);
+        jScrollPane2.setViewportView(txtPane);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,6 +137,6 @@ public class Help extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane txtPane;
     // End of variables declaration//GEN-END:variables
 }

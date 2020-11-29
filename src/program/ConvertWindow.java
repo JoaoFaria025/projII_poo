@@ -49,6 +49,7 @@ public final class ConvertWindow extends javax.swing.JFrame {
         ComboBox_input = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        optSair = new javax.swing.JMenuItem();
         opt_help = new javax.swing.JMenu();
         optManual = new javax.swing.JMenuItem();
         optCreditos = new javax.swing.JMenuItem();
@@ -219,6 +220,15 @@ public final class ConvertWindow extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+
+        optSair.setText("Sair");
+        optSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(optSair);
+
         jMenuBar1.add(jMenu1);
 
         opt_help.setText("Ajuda");
@@ -338,6 +348,10 @@ public final class ConvertWindow extends javax.swing.JFrame {
         window_manual.setVisible(true);
     }//GEN-LAST:event_optManualActionPerformed
 
+    private void optSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_optSairActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             try {
@@ -369,6 +383,7 @@ public final class ConvertWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JMenuItem optCreditos;
     private javax.swing.JMenuItem optManual;
+    private javax.swing.JMenuItem optSair;
     private javax.swing.JMenu opt_help;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,6 +31,12 @@ public class ConvertWindow_en extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -53,8 +59,21 @@ public class ConvertWindow_en extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
+        jMenu2.setText("File");
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("File");
+        jMenuBar3.add(jMenu4);
+
+        jMenu5.setText("Edit");
+        jMenuBar3.add(jMenu5);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ICONVERT - Conversão de Unidades");
+        setPreferredSize(new java.awt.Dimension(690, 410));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(5, 196, 107));
@@ -188,7 +207,7 @@ public class ConvertWindow_en extends javax.swing.JFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Combo_box_input, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +240,7 @@ public class ConvertWindow_en extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -261,11 +280,17 @@ public class ConvertWindow_en extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -273,30 +298,39 @@ public class ConvertWindow_en extends javax.swing.JFrame {
 
     private void opt_helpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opt_helpMouseClicked
         // TODO add your handling code here:
-       Help_en window_help = new Help_en();
-       window_help.setVisible(true);
-       
+        Help_en window_help = new Help_en();
+        window_help.setVisible(true);
+
     }//GEN-LAST:event_opt_helpMouseClicked
+
+    private void Output_valuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Output_valuesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Output_valuesActionPerformed
+
+    private void Clear_FieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clear_FieldsActionPerformed
+        // TODO add your handling code here:
+
+        Input_Values.setText("");
+        Output_values.setText("");
+    }//GEN-LAST:event_Clear_FieldsActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String entrada_valor = (String) Combo_box_input.getSelectedItem();
         String saida_valor = (String) ComboBox_output.getSelectedItem();
-        
+
         if(entrada_valor.equals("Metros") && saida_valor.equals("Kilometros")){
             double valor_text_entrada = Double.parseDouble(Input_Values.getText());
             double valor_saida = valor_text_entrada *0.001;
             Output_values.setText(String.valueOf(valor_saida));
-            
+
         }
-         if(entrada_valor.equals("Kilometros") && saida_valor.equals("Metros")){
+        if(entrada_valor.equals("Kilometros") && saida_valor.equals("Metros")){
             double valor_text_entrada = Double.parseDouble(Input_Values.getText());
             double valor_saida = valor_text_entrada *1000;
             Output_values.setText(String.valueOf(valor_saida));
-            
+
         }
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -306,20 +340,6 @@ public class ConvertWindow_en extends javax.swing.JFrame {
     private void Input_ValuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Input_ValuesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Input_ValuesActionPerformed
-
-    private void Output_valuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Output_valuesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Output_valuesActionPerformed
-
-    private void Clear_FieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clear_FieldsActionPerformed
-        // TODO add your handling code here:
-        
-        Input_Values.setText("");
-        Output_values.setText("");
-        
-        
-        
-    }//GEN-LAST:event_Clear_FieldsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,7 +392,13 @@ public class ConvertWindow_en extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

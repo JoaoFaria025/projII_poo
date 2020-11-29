@@ -20,10 +20,12 @@ public class Start_controller {
             Locale locale_language = Locale.getDefault();
             setLanguage(locale_language.getLanguage());
             if (getlanguage().equals("pt")) {//se o idioma do computador for pt ele entra no if
+                JOptionPane.showMessageDialog(null,"click pt");
                 ConvertWindow main_frame_pt = new ConvertWindow();
                 main_frame_pt.setVisible(true);
             }
             if (getlanguage().equals("en")) {//se o idioma do computador for en ele entra no if
+                 JOptionPane.showMessageDialog(null,"click pt");
                 ConvertWindow_en main_frame_en = new ConvertWindow_en();
                 main_frame_en.setVisible(true);
             }

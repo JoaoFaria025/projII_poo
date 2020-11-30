@@ -6,9 +6,9 @@ public class main {
 
     public static void main(String[] args) {
         try {
-            Start_controller start_controller = new Start_controller();
-            start_controller.start();
-        } catch (Exception e) {
+            ConvertWindow frame = new ConvertWindow();
+            frame.setVisible(true);
+        } catch (IllegalAccessException | InstantiationException e) {
             JOptionPane.showMessageDialog(null, "Error:" + e);
         }
     }

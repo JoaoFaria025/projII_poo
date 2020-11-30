@@ -1,6 +1,4 @@
-
 package program;
-
 
 import java.awt.HeadlessException;
 import java.util.Locale;
@@ -8,45 +6,24 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public final class ConvertWindow extends javax.swing.JFrame {
-      private String en = "en";
-      ConvertList_Name converter_lister = new ConvertList_Name();
-      
-    private void ConvertWindowENGLISH(){//traduzindo os valores
-        //jframe
-        setTitle("ICONVERT - Unit Conversion");
-        //menu
-        menuAjuda.setText("Help");
-        menuArquivo.setText("File");
-        optCreditos.setText("Credits");
-        optSair.setText("Exit");
-        optManual.setText("Manual");
-        
-        //label
-        labelBoasVindas.setText("Hi! Welcome to ICONVERT");
-        labelEntrada.setText("Input values");
-        labelOutput.setText("Output values");
-        
-        //btn
-        Clear_Fields.setText("Clear");
-        
-    }
+
+    ConvertList_Name converter_lister = new ConvertList_Name();
+
     public ConvertWindow() throws InstantiationException, IllegalAccessException {
-       Locale loc = Locale.getDefault();//pegar idioma do sistema
-       
         try {
-            
+        Locale loc = Locale.getDefault();//pegar idioma do sistema
             initComponents();
-     
-            if(loc.getLanguage() == en){
+
+            if (loc.getLanguage().equals("en")) {
                 ConvertWindowENGLISH();
             }
-            
+
             this.setLocationRelativeTo(null); //set jFrame to appear centered
             this.ComboBox_input.removeAllItems();
             this.ComboBox_output.removeAllItems();
-            
+
             converter_lister.ConvertLister();
-            
+
             for (String converter : converter_lister.getConverterLister()) {
                 this.ComboBox_input.addItem(converter);
             }
@@ -54,6 +31,7 @@ public final class ConvertWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error:" + e);
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -294,6 +272,25 @@ public final class ConvertWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void ConvertWindowENGLISH() {//traduzindo os valores
+        //jframe
+        setTitle("ICONVERT - Unit Conversion");
+        //menu
+        menuAjuda.setText("Help");
+        menuArquivo.setText("File");
+        optCreditos.setText("Credits");
+        optSair.setText("Exit");
+        optManual.setText("Manual");
+
+        //label
+        labelBoasVindas.setText("Hi! Welcome to ICONVERT");
+        labelEntrada.setText("Input values");
+        labelOutput.setText("Output values");
+
+        //btn
+        Clear_Fields.setText("Clear");
+
+    }
 
     private void opt_helpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opt_helpMouseClicked
         Help window_help = new Help();
@@ -305,7 +302,7 @@ public final class ConvertWindow extends javax.swing.JFrame {
         Input_Values.setText("");
         Output_values.setText("");
     }//GEN-LAST:event_Clear_FieldsActionPerformed
-    
+
     private void ComboBox_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_inputActionPerformed
         try {
             this.ComboBox_output.removeAllItems();
@@ -351,13 +348,13 @@ public final class ConvertWindow extends javax.swing.JFrame {
 
         try {
             if (this.ComboBox_output.isPopupVisible()) {
-                
+
                 String selectedFrom = (String) this.ComboBox_input.getSelectedItem();
                 String selectedOut = (String) this.ComboBox_output.getSelectedItem();
                 String ConvertFrom_value = this.Input_Values.getText();
-                
+
                 calculator values_converter = new calculator(selectedOut, selectedFrom, ConvertFrom_value);
-                
+
                 this.Output_values.setText(Double.toString(values_converter.Calculator_values()));
             }
         } catch (Exception e) {
@@ -379,15 +376,6 @@ public final class ConvertWindow extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_optSairActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            try {
-                new ConvertWindow().setVisible(true);
-            } catch (IllegalAccessException | InstantiationException e) {
-                JOptionPane.showMessageDialog(null, "Error:" + e);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Clear_Fields;

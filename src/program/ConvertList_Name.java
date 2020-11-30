@@ -1,6 +1,7 @@
 package program;
 
 import converters.AbstractConverter;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +21,7 @@ public class ConvertList_Name {
     private final ArrayList<String> converterLister = new ArrayList<>();
     //Atributes:
     private String[] archives;
+    private String path;
 
     public ArrayList<String> getDistanceList() {
         return distanceList;
@@ -58,55 +60,59 @@ public class ConvertList_Name {
     }
 
     public void ConvertLister() {
+        try {
+            this.path = JOptionPane.showInputDialog("Insert the path: Exemple: (C:\\Users\\jvcco\\Documents\\GitHub\\projII_poo) ");
+            File file = new File(this.path + "\\src\\converters");
+            this.archives = file.list();
 
-        File file = new File("C:\\Users\\htols\\Desktop\\projII_poo\\src\\converters");
-        this.archives = file.list();
+            for (String file_list : this.archives) {
 
-        for (String file_list : this.archives) {
+                if (!(file_list.equals("AbstractConverter.java")) && !(file_list.equals("MeasureType.java")) && !(file_list.equals("classes"))) {
+                    try {
 
-            if (!(file_list.equals("AbstractConverter.java")) && !(file_list.equals("MeasureType.java")) && !(file_list.equals("classes"))) {
-                try {
+                        String class_name = file_list.substring(0, file_list.indexOf("."));
+                        AbstractConverter obj_abs = (AbstractConverter) Class.forName("converters." + class_name).newInstance();
+                        this.converterLister.add(obj_abs.getName() + file_list);
 
-                    String class_name = file_list.substring(0, file_list.indexOf("."));
-                    AbstractConverter obj_abs = (AbstractConverter) Class.forName("converters." + class_name).newInstance();
-                    this.converterLister.add(obj_abs.getName() + file_list);
+                        // ----------------- PARTE DE FILTRAR A COMBOBOX -------------------
+                        int index_begin = obj_abs.getName().indexOf("[");
+                        int index_end = obj_abs.getName().indexOf("]");
+                        String unit = obj_abs.getName().substring(index_begin + 1, index_end);
 
-                    // ----------------- PARTE DE FILTRAR A COMBOBOX -------------------
-                    int index_begin = obj_abs.getName().indexOf("[");
-                    int index_end = obj_abs.getName().indexOf("]");
-                    String unit = obj_abs.getName().substring(index_begin + 1, index_end);
+                        //salva todas as classes de medida de acordo com o seu tipo em listas diferentes
+                        if (unit.equals("distance")) {
+                            this.distanceList.add(obj_abs.getName() + file_list);
+                        }
+                        if (unit.equals("area")) {
+                            this.areaList.add(obj_abs.getName() + file_list);
+                        }
+                        if (unit.equals("volume")) {
+                            this.volumeList.add(obj_abs.getName() + file_list);
+                        }
+                        if (unit.equals("mass")) {
+                            this.massList.add(obj_abs.getName() + file_list);
+                        }
+                        if (unit.equals("time")) {
+                            this.timeList.add(obj_abs.getName() + file_list);
+                        }
+                        if (unit.equals("speed")) {
+                            this.speedList.add(obj_abs.getName() + file_list);
+                        }
+                        if (unit.equals("acceleration")) {
+                            this.accelerationList.add(obj_abs.getName() + file_list);
+                        }
+                        if (unit.equals("storage")) {
+                            this.storageList.add(obj_abs.getName() + file_list);
+                        }
 
-                    //salva todas as classes de medida de acordo com o seu tipo em listas diferentes
-                    if (unit.equals("distance")) {
-                        this.distanceList.add(obj_abs.getName() + file_list);
+                    } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+                        JOptionPane.showMessageDialog(null, "Error:" + e);
                     }
-                    if (unit.equals("area")) {
-                        this.areaList.add(obj_abs.getName() + file_list);
-                    }
-                    if (unit.equals("volume")) {
-                        this.volumeList.add(obj_abs.getName() + file_list);
-                    }
-                    if (unit.equals("mass")) {
-                        this.massList.add(obj_abs.getName() + file_list);
-                    }
-                    if (unit.equals("time")) {
-                        this.timeList.add(obj_abs.getName() + file_list);
-                    }
-                    if (unit.equals("speed")) {
-                        this.speedList.add(obj_abs.getName() + file_list);
-                    }
-                    if (unit.equals("acceleration")) {
-                        this.accelerationList.add(obj_abs.getName() + file_list);
-                    }
-                    if (unit.equals("storage")) {
-                        this.storageList.add(obj_abs.getName() + file_list);
-                    }
-
-                } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-                    JOptionPane.showMessageDialog(null, "Error:" + e);
                 }
             }
+            Collections.sort(converterLister); //Colocar em ordem alfabética a lista 
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error:" + e);
         }
-        Collections.sort(converterLister); //Colocar em ordem alfabética a lista 
     }
 }

@@ -67,7 +67,7 @@ public class ConvertList_Name {
 
             for (String file_list : this.archives) {
 
-                if (!(file_list.equals("AbstractConverter.java")) && !(file_list.equals("MeasureType.java")) && !(file_list.equals("classes"))) {
+                if (!(file_list.equals("AbstractConverter.java")) && !(file_list.equals("classes"))) {
                     try {
 
                         String class_name = file_list.substring(0, file_list.indexOf("."));

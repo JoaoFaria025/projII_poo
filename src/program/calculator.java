@@ -29,9 +29,9 @@ public class calculator {
 
             double valueConvertFrom = Double.parseDouble(this.ConvertFrom);
             double value = selectedConvertTo.fromBasicUnit(selectedConvertFrom.toBasicUnit(valueConvertFrom));
-            
+
             return value;
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NumberFormatException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error:" + e);
         }
         return 0;
